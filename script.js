@@ -27,9 +27,9 @@ const roundRobinMatches = [
   { date: '26/11/2025', time: '12:15', player1: 'HoanPV', player2: 'SangTT', winner: 'SangTT', score: '1-2' },   // B
   { date: '26/11/2025', time: '12:15', player1: 'DongLT', player2: 'YenNTN', winner: 'DongLT', score: '2-1' },    // D
   { date: '27/11/2025', time: '12:15', player1: 'ThangPV', player2: 'ThangNH', winner: 'ThangPV', score: '0-2' },// A
-  { date: '27/11/2025', time: '12:15', player1: 'YChiTQ', player2: 'ThanhND', winner: '', score: '' },   // B
-  { date: '28/11/2025', time: '12:15', player1: 'DongLT', player2: 't.mizutani', winner: '', score: '' },  // D
-  { date: '28/11/2025', time: '12:15', player1: 'HungLV', player2: 'QuynhTTN', winner: '', score: '' },  // C
+  { date: '27/11/2025', time: '12:15', player1: 'YChiTQ', player2: 'ThanhND', winner: 'ThanhND', score: '0-2' },   // B
+  { date: '28/11/2025', time: '12:15', player1: 'YenNTN', player2: 't.mizutani', winner: 'YenNTN', score: '2-0' },   // D
+  { date: '28/11/2025', time: '12:15', player1: 'HungLV', player2: 'QuynhTTN', winner: 'HungLV', score: '2-0' },  // C
 
   // Tuần 3
   { date: '01/12/2025', time: '12:15', player1: 'ThangNH', player2: 'ThuyNT', winner: '', score: '' },  // A
@@ -49,7 +49,7 @@ const roundRobinMatches = [
   { date: '09/12/2025', time: '12:15', player1: 'ThuyNT', player2: 'ThangPV', winner: '', score: '' },   // A
   { date: '09/12/2025', time: '12:15', player1: 'HoanPV', player2: 'YChiTQ', winner: '', score: '' },    // B
   { date: '10/12/2025', time: '12:15', player1: 'HungLV', player2: 'HuyHVQ', winner: '', score: '' },    // C
-  { date: '10/12/2025', time: '12:15', player1: 'YenNTN', player2: 't.mizutani', winner: '', score: '' },   // D
+  { date: '10/12/2025', time: '12:15', player1: 'DongLT', player2: 't.mizutani', winner: '', score: '' },  // D
   { date: '11/12/2025', time: '12:15', player1: 'LieuND', player2: 'NhanTT', winner: '', score: '' },    // A
   { date: '11/12/2025', time: '12:15', player1: 'DuyHG', player2: 'ThanhND', winner: '', score: '' },    // B
   { date: '12/12/2025', time: '12:15', player1: 'QuynhTTN', player2: 'SinhNT', winner: '', score: '' },  // C
@@ -699,11 +699,11 @@ function renderRankings(groupFilter = "all") {
     const tbody = document.querySelector(`#rankings-table-${group} tbody`);
     rankings[group].forEach((player, index) => {
       let rowClass = "";
-      if (player.rank <= 2) {
-          rowClass = "top2-real";
-      } else {
-          rowClass = "outside-top2";
-      }
+      // if (player.rank <= 2) {
+      //     rowClass = "top2-real";
+      // } else {
+      //     rowClass = "outside-top2";
+      // }
 
       const row = `
           <tr class="${rowClass}">
