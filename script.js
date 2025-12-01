@@ -67,35 +67,39 @@ const playoffMatches = [
     { stage: 'Chung Kết', date: '23/12/2025', time: '12:15', player1: '', player2: '', winner: '', score: '' }
 ];
 
-const win6plusStats = [
-  { player: "ThaiNQ", wins: 0 },
-];
+
+const win6plusStats = [{ player: "ThaiNQ", wins: 0 }];
 
 // Shared functions
 function getCurrentDate() {
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = today.getFullYear();
-    return `${day}/${month}/${year}`;
+  const today = new Date();
+  const day = String(today.getDate()).padStart(2, "0");
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const year = today.getFullYear();
+  return `${day}/${month}/${year}`;
 }
 
 function renderGroups() {
-    const groupList = document.getElementById('group-list');
-    if (!groupList) return;
-    groupList.innerHTML = '';
-    for (const group in groups) {
-        const groupCard = `
+  const groupList = document.getElementById("group-list");
+  if (!groupList) return;
+  groupList.innerHTML = "";
+  for (const group in groups) {
+    const groupCard = `
             <div class="col-md-3">
                 <div class="group-card">
                     <h4>Nhóm ${group}</h4>
                     <ul class="list-group">
-                        ${groups[group].map(player => `<li class="list-group-item">${player}</li>`).join('')}
+                        ${groups[group]
+                          .map(
+                            (player) =>
+                              `<li class="list-group-item">${player}</li>`
+                          )
+                          .join("")}
                     </ul>
                 </div>
             </div>`;
-        groupList.innerHTML += groupCard;
-    }
+    groupList.innerHTML += groupCard;
+  }
 }
 
 // === Gamepad Icon:===
@@ -105,11 +109,11 @@ let isCaught = false;
 let originalStyle = null;
 
 function initGamepadPlayButton() {
-    const btn = document.getElementById('gamepadPlayButton');
-    if (!btn) return;
+  const btn = document.getElementById("gamepadPlayButton");
+  if (!btn) return;
 
-    // === BUTTON HÌNH TRÒN HOÀN CHỈNH ===
-    btn.style.cssText = `
+  // === BUTTON HÌNH TRÒN HOÀN CHỈNH ===
+  btn.style.cssText = `
         position: fixed;
         right: 24px;
         bottom: 24px;
@@ -132,17 +136,17 @@ function initGamepadPlayButton() {
         padding: 4px;
     `;
 
-    // === ICON GAMEPAD ===
-    const icon = btn.querySelector('i');
-    icon.style.cssText = `
+  // === ICON GAMEPAD ===
+  const icon = btn.querySelector("i");
+  icon.style.cssText = `
         font-size: 1.65rem;
         margin-bottom: 0px;
         line-height: 1;
     `;
 
-    // === CHỮ PLAY NHỎ HƠN, FIT HOÀN HẢO ===
-    const playText = btn.querySelector('.play-text');
-    playText.style.cssText = `
+  // === CHỮ PLAY NHỎ HƠN, FIT HOÀN HẢO ===
+  const playText = btn.querySelector(".play-text");
+  playText.style.cssText = `
         font-size: 0.65rem;
         font-weight: 800;
         letter-spacing: 0.8px;
@@ -152,28 +156,30 @@ function initGamepadPlayButton() {
         text-shadow: 0 1px 2px rgba(0,0,0,0.2);
     `;
 
-    // === HOVER EFFECT ===
-    btn.addEventListener('mouseenter', () => {
-        btn.style.transform = 'scale(1.08)';
-        btn.style.boxShadow = '0 12px 35px rgba(59, 130, 246, 0.5), 0 4px 15px rgba(0,0,0,0.15)';
-    });
+  // === HOVER EFFECT ===
+  btn.addEventListener("mouseenter", () => {
+    btn.style.transform = "scale(1.08)";
+    btn.style.boxShadow =
+      "0 12px 35px rgba(59, 130, 246, 0.5), 0 4px 15px rgba(0,0,0,0.15)";
+  });
 
-    btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'scale(1)';
-        btn.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.4), 0 2px 8px rgba(0,0,0,0.1)';
-    });
+  btn.addEventListener("mouseleave", () => {
+    btn.style.transform = "scale(1)";
+    btn.style.boxShadow =
+      "0 8px 25px rgba(59, 130, 246, 0.4), 0 2px 8px rgba(0,0,0,0.1)";
+  });
 
-    // === CLICK EFFECT ===
-    btn.addEventListener('click', () => {
-        window.open('https://thichthivar.ssvhue.work', '_blank');
-        
-        btn.style.transform = 'scale(0.95)';
-        setTimeout(() => btn.style.transform = 'scale(1.08)', 120);
-        setTimeout(() => btn.style.transform = 'scale(1)', 300);
-    });
+  // === CLICK EFFECT ===
+  btn.addEventListener("click", () => {
+    window.open("https://thichthivar.ssvhue.work", "_blank");
+
+    btn.style.transform = "scale(0.95)";
+    setTimeout(() => (btn.style.transform = "scale(1.08)"), 120);
+    setTimeout(() => (btn.style.transform = "scale(1)"), 300);
+  });
 }
 
-document.addEventListener('DOMContentLoaded', initGamepadPlayButton);
+document.addEventListener("DOMContentLoaded", initGamepadPlayButton);
 document.addEventListener("DOMContentLoaded", function () {
   document
     .getElementById("group-popup-btn")
@@ -223,7 +229,9 @@ function renderRoundRobin(matches) {
                 <td>${match.time || "-"}</td>
                 <td>${match.player1 || "-"}</td>
                 <td>${match.player2 || "-"}</td>
-                <td style="color: ${match.winner ? 'green' : 'inherit'};">${match.winner || "-"}</td>
+                <td style="color: ${match.winner ? "green" : "inherit"};">${
+      match.winner || "-"
+    }</td>
                 <td>${match.score || "-"}</td>
             </tr>`;
     tbody.innerHTML += row;
@@ -367,153 +375,162 @@ function initializeRankings() {
 }
 
 function calculateRankings() {
-    const rankings = initializeRankings();
+  const rankings = initializeRankings();
 
-    // === BƯỚC 1: TÍNH TOÁN THỐNG KÊ CHO TỪNG NHÓM ===
-    Object.keys(groups).forEach((group) => {
-        const groupPlayers = groups[group];
+  // === BƯỚC 1: TÍNH TOÁN THỐNG KÊ CHO TỪNG NHÓM ===
+  Object.keys(groups).forEach((group) => {
+    const groupPlayers = groups[group];
 
-        roundRobinMatches.forEach((match) => {
-            const p1Name = match.player1;
-            const p2Name = match.player2;
+    roundRobinMatches.forEach((match) => {
+      const p1Name = match.player1;
+      const p2Name = match.player2;
 
-            if (!groupPlayers.includes(p1Name) || !groupPlayers.includes(p2Name)) return;
+      if (!groupPlayers.includes(p1Name) || !groupPlayers.includes(p2Name))
+        return;
 
-            const p1 = rankings[group].find(p => p.player === p1Name);
-            const p2 = rankings[group].find(p => p.player === p2Name);
-            if (!p1 || !p2) return;
+      const p1 = rankings[group].find((p) => p.player === p1Name);
+      const p2 = rankings[group].find((p) => p.player === p2Name);
+      if (!p1 || !p2) return;
 
-            const winner = match.winner?.trim();
-            const scoreStr = match.score?.trim();
+      const winner = match.winner?.trim();
+      const scoreStr = match.score?.trim();
 
-            // Bỏ qua trận chưa đấu
-            if (!winner || winner === "") return;
+      // Bỏ qua trận chưa đấu
+      if (!winner || winner === "") return;
 
-            p1.matches++;
-            p2.matches++;
+      p1.matches++;
+      p2.matches++;
 
-            // === XỬ LÝ TỈ SỐ: DỰA VÀO WINNER, KHÔNG TIN SCORE ===
-            let p1Score = 0, p2Score = 0;
+      // === XỬ LÝ TỈ SỐ: DỰA VÀO WINNER, KHÔNG TIN SCORE ===
+      let p1Score = 0,
+        p2Score = 0;
 
-            if (scoreStr && scoreStr.includes("-")) {
-                const [s1, s2] = scoreStr.split("-").map(Number);
-                const scoreValid = !isNaN(s1) && !isNaN(s2);
+      if (scoreStr && scoreStr.includes("-")) {
+        const [s1, s2] = scoreStr.split("-").map(Number);
+        const scoreValid = !isNaN(s1) && !isNaN(s2);
 
-                if (scoreValid) {
-                    // Kiểm tra tính hợp lệ: winner phải khớp với tỉ số
-                    const scoreWinner = s1 > s2 ? p1Name : s1 < s2 ? p2Name : "H";
-                    if (scoreWinner === winner) {
-                        // Score đúng → dùng
-                        p1Score = s1;
-                        p2Score = s2;
-                    } else {
-                        // Score ngược → đảo ngược
-                        p1Score = s2;
-                        p2Score = s1;
-                    }
-                }
-            }
-
-            // Nếu score không hợp lệ → dùng winner để suy ra tỉ số mặc định
-            if (p1Score === 0 && p2Score === 0) {
-                if (winner === "H") {
-                    p1Score = p2Score = 1; // hòa 1-1
-                } else if (winner === p1Name) {
-                    p1Score = 2; p2Score = 1; // thắng 2-1
-                } else if (winner === p2Name) {
-                    p1Score = 1; p2Score = 2; // thua 1-2
-                }
-            }
-
-            // === CẬP NHẬT TỈ SỐ ===
-            p1.goalsFor += p1Score;
-            p1.goalsAgainst += p2Score;
-            p2.goalsFor += p2Score;
-            p2.goalsAgainst += p1Score;
-
-            // === CẬP NHẬT KẾT QUẢ ===
-            if (winner === "H") {
-                p1.draws++;
-                p2.draws++;
-                p1.points += 1;
-                p2.points += 1;
-            } else if (winner === p1Name) {
-                p1.wins++;
-                p2.losses++;
-                p1.points += 3;
-            } else if (winner === p2Name) {
-                p2.wins++;
-                p1.losses++;
-                p2.points += 3;
-            }
-        });
-
-        // Cập nhật hệ số
-        rankings[group].forEach(p => {
-            p.goalDiff = p.goalsFor - p.goalsAgainst;
-        });
-    });
-
-    // === BƯỚC 2: SẮP XẾP THEO 4 ƯU TIÊN ===
-    Object.keys(rankings).forEach(group => {
-        const players = rankings[group];
-
-        // Tạo map đối đầu
-        const headToHead = {};
-        roundRobinMatches.forEach(match => {
-            const p1 = match.player1, p2 = match.player2;
-            const winner = match.winner?.trim();
-            if (!winner || winner === "") return;
-
-            const key1 = `${p1} vs ${p2}`;
-            const key2 = `${p2} vs ${p1}`;
-
-            let result1, result2;
-            if (winner === "H") {
-                result1 = result2 = 0;
-            } else if (winner === p1) {
-                result1 = 1; result2 = -1;
-            } else if (winner === p2) {
-                result1 = -1; result2 = 1;
-            }
-
-            headToHead[key1] = result1;
-            headToHead[key2] = result2;
-        });
-
-        function compareHeadToHead(a, b) {
-            const key = `${a.player} vs ${b.player}`;
-            const result = headToHead[key];
-            if (result !== undefined) return -result;
-            return 0;
+        if (scoreValid) {
+          // Kiểm tra tính hợp lệ: winner phải khớp với tỉ số
+          const scoreWinner = s1 > s2 ? p1Name : s1 < s2 ? p2Name : "H";
+          if (scoreWinner === winner) {
+            // Score đúng → dùng
+            p1Score = s1;
+            p2Score = s2;
+          } else {
+            // Score ngược → đảo ngược
+            p1Score = s2;
+            p2Score = s1;
+          }
         }
+      }
 
-        // Sắp xếp theo 4 tiêu chí
-        players.sort((a, b) => {
-            if (b.points !== a.points) return b.points - a.points;
-            if (b.goalDiff !== a.goalDiff) return b.goalDiff - a.goalDiff;
-            const h2h = compareHeadToHead(a, b);
-            if (h2h !== 0) return h2h;
-            return b.wins - a.wins;
-        });
+      // Nếu score không hợp lệ → dùng winner để suy ra tỉ số mặc định
+      if (p1Score === 0 && p2Score === 0) {
+        if (winner === "H") {
+          p1Score = p2Score = 1; // hòa 1-1
+        } else if (winner === p1Name) {
+          p1Score = 2;
+          p2Score = 1; // thắng 2-1
+        } else if (winner === p2Name) {
+          p1Score = 1;
+          p2Score = 2; // thua 1-2
+        }
+      }
 
-        // Gán hạng
-        let currentRank = 0;
-        let prev = null;
-        players.forEach((p, i) => {
-            if (!prev ||
-                prev.points !== p.points ||
-                prev.goalDiff !== p.goalDiff ||
-                compareHeadToHead(prev, p) !== 0 ||
-                prev.wins !== p.wins) {
-                currentRank = i + 1;
-            }
-            p.rank = currentRank;
-            prev = p;
-        });
+      // === CẬP NHẬT TỈ SỐ ===
+      p1.goalsFor += p1Score;
+      p1.goalsAgainst += p2Score;
+      p2.goalsFor += p2Score;
+      p2.goalsAgainst += p1Score;
+
+      // === CẬP NHẬT KẾT QUẢ ===
+      if (winner === "H") {
+        p1.draws++;
+        p2.draws++;
+        p1.points += 1;
+        p2.points += 1;
+      } else if (winner === p1Name) {
+        p1.wins++;
+        p2.losses++;
+        p1.points += 3;
+      } else if (winner === p2Name) {
+        p2.wins++;
+        p1.losses++;
+        p2.points += 3;
+      }
     });
 
-    return rankings;
+    // Cập nhật hệ số
+    rankings[group].forEach((p) => {
+      p.goalDiff = p.goalsFor - p.goalsAgainst;
+    });
+  });
+
+  // === BƯỚC 2: SẮP XẾP THEO 4 ƯU TIÊN ===
+  Object.keys(rankings).forEach((group) => {
+    const players = rankings[group];
+
+    // Tạo map đối đầu
+    const headToHead = {};
+    roundRobinMatches.forEach((match) => {
+      const p1 = match.player1,
+        p2 = match.player2;
+      const winner = match.winner?.trim();
+      if (!winner || winner === "") return;
+
+      const key1 = `${p1} vs ${p2}`;
+      const key2 = `${p2} vs ${p1}`;
+
+      let result1, result2;
+      if (winner === "H") {
+        result1 = result2 = 0;
+      } else if (winner === p1) {
+        result1 = 1;
+        result2 = -1;
+      } else if (winner === p2) {
+        result1 = -1;
+        result2 = 1;
+      }
+
+      headToHead[key1] = result1;
+      headToHead[key2] = result2;
+    });
+
+    function compareHeadToHead(a, b) {
+      const key = `${a.player} vs ${b.player}`;
+      const result = headToHead[key];
+      if (result !== undefined) return -result;
+      return 0;
+    }
+
+    // Sắp xếp theo 4 tiêu chí
+    players.sort((a, b) => {
+      if (b.points !== a.points) return b.points - a.points;
+      if (b.goalDiff !== a.goalDiff) return b.goalDiff - a.goalDiff;
+      const h2h = compareHeadToHead(a, b);
+      if (h2h !== 0) return h2h;
+      return b.wins - a.wins;
+    });
+
+    // Gán hạng
+    let currentRank = 0;
+    let prev = null;
+    players.forEach((p, i) => {
+      if (
+        !prev ||
+        prev.points !== p.points ||
+        prev.goalDiff !== p.goalDiff ||
+        compareHeadToHead(prev, p) !== 0 ||
+        prev.wins !== p.wins
+      ) {
+        currentRank = i + 1;
+      }
+      p.rank = currentRank;
+      prev = p;
+    });
+  });
+
+  return rankings;
 }
 
 function calculatePlayoffRankings() {
@@ -661,6 +678,7 @@ function renderPlayoffRankings() {
         info: "Hiển thị _START_ đến _END_ của _TOTAL_ người chơi",
         infoEmpty: "Không có người chơi nào",
         infoFiltered: "(lọc từ _MAX_ người chơi)",
+        emptyTable: "Chưa có dữ liệu xếp hạng playoff"
       },
       order: [[0, "asc"]],
     });
@@ -700,29 +718,35 @@ function renderRankings(groupFilter = "all") {
     rankings[group].forEach((player, index) => {
       let rowClass = "";
       // if (player.rank <= 2) {
-      //     rowClass = "top2-real";
+      //   rowClass = "top2-real";
       // } else {
-      //     rowClass = "outside-top2";
+      //   rowClass = "outside-top2";
       // }
 
       const row = `
           <tr class="${rowClass}">
-              <td>${player.player}</td>
+              <td class="player-cell" data-player="${player.player}">
+                  <span style="cursor:pointer;">
+                      ${player.player}
+                  </span>
+              </td>
               <td>${player.matches}</td>
               <td>${player.wins}</td>
               <td>${player.losses}</td>
               <td>${player.draws}</td>
-              <td>${player.goalDiff >= 0 ? "+" + player.goalDiff : player.goalDiff}</td>
+              <td>${
+                player.goalDiff >= 0 ? "+" + player.goalDiff : player.goalDiff
+              }</td>
               <td>${player.points}</td>
           </tr>`;
       tbody.innerHTML += row;
-  });
+    });
 
     $(`#rankings-table-${group}`).DataTable({
       pageLength: 5,
       lengthChange: false,
       searching: false,
-      info: false, 
+      info: false,
       paging: false,
       language: {
         search: "Tìm kiếm:",
@@ -741,6 +765,7 @@ function renderRankings(groupFilter = "all") {
 
   // Render playoff rankings
   renderPlayoffRankings();
+  setTimeout(attachPlayerPopovers, 100);
 }
 
 function filterRankings() {
@@ -782,40 +807,45 @@ function loadGroups() {
 // === HIỂN THỊ BẢNG WIN 6+1 – CHỈ NGƯỜI CÓ WINS > 0 ===
 // === HIỂN THỊ BẢNG WIN 6+ – CHỈ NGƯỜI CÓ WINS > 0, CÓ ICON ===
 function renderWin6PlusTable() {
-    // Lọc người có wins > 0 và sắp xếp
-    const winners = win6plusStats
-        .filter(p => p.wins > 0)
-        .sort((a, b) => b.wins - a.wins);
+  // Lọc người có wins > 0 và sắp xếp
+  const winners = win6plusStats
+    .filter((p) => p.wins > 0)
+    .sort((a, b) => b.wins - a.wins);
 
-    // Xếp hạng chính xác (cùng wins → cùng hạng)
-    let currentRank = 0;
-    let prevWins = null;
-    const ranked = winners.map((item, index) => {
-        if (item.wins !== prevWins) {
-            currentRank = index + 1;
-            prevWins = item.wins;
-        }
-        return { ...item, rank: currentRank };
-    });
+  // Xếp hạng chính xác (cùng wins → cùng hạng)
+  let currentRank = 0;
+  let prevWins = null;
+  const ranked = winners.map((item, index) => {
+    if (item.wins !== prevWins) {
+      currentRank = index + 1;
+      prevWins = item.wins;
+    }
+    return { ...item, rank: currentRank };
+  });
 
-    const tbody = $('#win6plusTable tbody');
-    tbody.empty();
+  const tbody = $("#win6plusTable tbody");
+  tbody.empty();
 
-    if (winners.length === 0) {
-        tbody.append(`
+  if (winners.length === 0) {
+    tbody.append(`
             <tr>
                 <td colspan="3" style="text-align:center; color:#888; padding:20px; font-style:italic;">
                     Chưa có người đạt win 6+
                 </td>
             </tr>
         `);
-    } else {
-        ranked.forEach(item => {
-            const medalIcon = item.rank === 1 ? '<i class="fas fa-medal text-warning"></i>' :
-                             item.rank === 2 ? '<i class="fas fa-medal text-secondary"></i>' :
-                             item.rank === 3 ? '<i class="fas fa-medal" style="color:#cd7f32;"></i>' : '';
+  } else {
+    ranked.forEach((item) => {
+      const medalIcon =
+        item.rank === 1
+          ? '<i class="fas fa-medal text-warning"></i>'
+          : item.rank === 2
+          ? '<i class="fas fa-medal text-secondary"></i>'
+          : item.rank === 3
+          ? '<i class="fas fa-medal" style="color:#cd7f32;"></i>'
+          : "";
 
-            tbody.append(`
+      tbody.append(`
                 <tr>
                     <td>
                         <strong>#${item.rank}</strong> ${medalIcon}
@@ -829,11 +859,115 @@ function renderWin6PlusTable() {
                     </td>
                 </tr>
             `);
-        });
-    }
+    });
+  }
 }
 
 renderWin6PlusTable();
+
+function getPlayerHistoryHTML(playerName) {
+  const history = roundRobinMatches
+    .filter(
+      (m) =>
+        (m.player1 === playerName || m.player2 === playerName) &&
+        m.winner &&
+        m.winner.trim() !== "" // chỉ lấy trận đã đấu
+    )
+    .map((m) => {
+      const opponent = m.player1 === playerName ? m.player2 : m.player1;
+
+      // ======= XÁC ĐỊNH KẾT QUẢ =======
+      let resultClass = "text-secondary";
+      let resultText = "Hòa";
+
+      if (m.winner === playerName) {
+        resultClass = "text-success fw-bold";
+        resultText = "Thắng";
+      } else if (m.winner === opponent) {
+        resultClass = "text-danger fw-bold";
+        resultText = "Thua";
+      }
+
+      // ======= XỬ LÝ TỈ SỐ =======
+      let score = m.score?.trim() || "";
+      let s1 = null,
+        s2 = null;
+
+      if (score.includes("-")) {
+        const parts = score.split("-").map((n) => Number(n));
+        if (!isNaN(parts[0]) && !isNaN(parts[1])) {
+          s1 = parts[0];
+          s2 = parts[1];
+        }
+      }
+
+      // Nếu không đọc được score → suy ra
+      if (s1 === null || s2 === null) {
+        if (m.winner === playerName) {
+          s1 = 2;
+          s2 = 1;
+        } else if (m.winner === opponent) {
+          s1 = 1;
+          s2 = 2;
+        } else {
+          s1 = s2 = 1;
+        }
+      }
+
+      // Player hiện tại là p1 hay p2
+      const isP1 = m.player1 === playerName;
+
+      let playerScore = isP1 ? s1 : s2;
+      let oppScore = isP1 ? s2 : s1;
+
+      // ======= ĐẢM BẢO ĐÚNG FORM THẮNG/THUA =======
+      if (resultText === "Thắng" && playerScore < oppScore) {
+        [playerScore, oppScore] = [oppScore, playerScore];
+      }
+
+      if (resultText === "Thua" && playerScore > oppScore) {
+        [playerScore, oppScore] = [oppScore, playerScore];
+      }
+
+      const scoreDisplay = `(${playerScore}-${oppScore})`;
+
+      // ======= TRẢ VỀ HTML GỐC CỦA BẠN =======
+      return `
+                <div style="margin-bottom:6px;">
+                    <span class="fw-bold">${m.date}</span> • 
+                    <span>${playerName}</span> vs <span>${opponent}</span><br>
+                    <span class="${resultClass}">${resultText}</span>
+                    <span class="text-muted">${scoreDisplay}</span>
+                </div>
+            `;
+    });
+
+  if (history.length === 0) {
+    return `<em style="color:#888;">Chưa có trận đấu nào</em>`;
+  }
+
+  return history.join("");
+}
+
+function attachPlayerPopovers() {
+    document.querySelectorAll(".player-cell").forEach(cell => {
+        const player = cell.dataset.player;
+        const html = getPlayerHistoryHTML(player);
+
+        // Xóa popover cũ nếu tồn tại
+        const old = bootstrap.Popover.getInstance(cell);
+        if (old) old.dispose();
+
+        new bootstrap.Popover(cell, {
+            container: 'body',
+            trigger: 'hover',
+            placement: 'right',
+            html: true,
+            title: `<strong>Lịch sử đấu – ${player}</strong>`,
+            content: html
+        });
+    });
+}
 
 // Initialize based on page
 $(document).ready(() => {
