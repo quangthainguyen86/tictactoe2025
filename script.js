@@ -40,11 +40,11 @@ const roundRobinMatches = [
   { date: '03/12/2025', time: '12:15', player1: 'DuyHG', player2: 'YChiTQ', winner: 'YChiTQ', score: '0-2' },    // B
   { date: '04/12/2025', time: '12:15', player1: 'HuyHVQ', player2: 'QuynhTTN', winner: 'QuynhTTN', score: '0-2' }, // C
   { date: '04/12/2025', time: '12:15', player1: 'NhanVP', player2: 't.mizutani', winner: '', score: '' }, // D
-  { date: '05/12/2025', time: '12:15', player1: 'NhanTT', player2: 'ThangNH', winner: '', score: '' },  // A
-  { date: '05/12/2025', time: '12:15', player1: 'ThanhND', player2: 'SangTT', winner: '', score: '' },  // B
+  { date: '05/12/2025', time: '12:15', player1: 'NhanTT', player2: 'ThangNH', winner: 'NhanTT', score: '2-0' },  // A
+  { date: '05/12/2025', time: '12:15', player1: 'ThanhND', player2: 'SangTT', winner: 'ThanhND', score: '2-1' },  // B
 
   // Tuần 4
-  { date: '08/12/2025', time: '12:15', player1: 'SinhNT', player2: 'KhanhLQ', winner: '', score: '' },   // C
+  { date: '08/12/2025', time: '12:15', player1: 'SinhNT', player2: 'KhanhLQ', winner: 'SinhNT', score: '2-1' },   // C
   { date: '08/12/2025', time: '12:15', player1: 'ThaiNQ', player2: 'DongLT', winner: '', score: '' },  // D
   { date: '09/12/2025', time: '12:15', player1: 'ThuyNT', player2: 'ThangPV', winner: '', score: '' },   // A
   { date: '09/12/2025', time: '12:15', player1: 'HoanPV', player2: 'YChiTQ', winner: '', score: '' },    // B
