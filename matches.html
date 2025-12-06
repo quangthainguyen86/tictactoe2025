@@ -516,14 +516,14 @@
         .bracket-connector {
             display: flex;
             flex-direction: column;
-            gap: 80px;
+            gap: 150px;
             position: relative;
             width: 70px;
             justify-content: center;
         }
 
         .line {
-            height: 2px;
+            height: 3px;
             background: #94a3b8;
             position: relative;
             transition: background 0.3s ease;
@@ -547,7 +547,7 @@
         .bracket-connector.quarter-to-semi::after {
             content: '';
             position: absolute;
-            width: 2px;
+            width: 3px;
             background: #94a3b8;
             left: 50%;
             transform: translateX(-50%);
@@ -555,7 +555,7 @@
         }
 
         .bracket-connector.quarter-to-semi::before {
-            top: 0;
+            top: 120px;
             height: 80px;
         }
 
@@ -567,11 +567,11 @@
         .bracket-connector.semi-to-final::before {
             content: '';
             position: absolute;
-            width: 2px;
+            width: 3px;
             background: #94a3b8;
             left: 50%;
             transform: translateX(-50%);
-            top: 0;
+            top: 90px;
             height: 80px;
             transition: background 0.3s ease;
         }
@@ -762,10 +762,18 @@
                 </div>
 
                 <div class="bracket-connector quarter-to-semi">
-                    <div class="line top-line"></div>
-                    <div class="line bottom-line"></div>
-                    <div class="line top-line"></div>
-                    <div class="line bottom-line"></div>
+                    <div class="line top-line" style="
+    top: 120px;
+"></div>
+                    <div class="line bottom-line" style="
+    top: 44px;
+"></div>
+                    <div class="line top-line" style="
+    top: 153px;
+"></div>
+                    <div class="line bottom-line" style="
+    bottom: 77px;
+"></div>
                 </div>
 
                 <div class="bracket-column semifinals">
@@ -775,12 +783,16 @@
                 </div>
 
                 <div class="bracket-connector semi-to-final">
-                    <div class="line full-line"></div>
-                    <div class="line full-line"></div>
+                    <div class="line full-line" style="
+    top: 88px;
+"></div>
+                    <div class="line full-line" style="
+    top: 15px;
+"></div>
                 </div>
 
                 <div class="bracket-column finals">
-                    <h3>Chung kết</h3>
+                    <h3>Chung kết 🏆</h3>
                     <div class="match-pair final-match" data-match-index="7"></div>
                     <h3 class="third-place-title">Tranh hạng 3</h3>
                     <div class="match-pair third-place-match" data-match-index="6"></div>
