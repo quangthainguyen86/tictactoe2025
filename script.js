@@ -36,7 +36,7 @@ const roundRobinMatches = [
   { date: '01/12/2025', time: '12:15', player1: 'DuyHG', player2: 'SangTT', winner: 'SangTT', score: '0-2' },     // B
   { date: '02/12/2025', time: '12:15', player1: 'KhanhLQ', player2: 'HungLV', winner: 'HungLV', score: '1-2' },  // C
   { date: '02/12/2025', time: '12:15', player1: 'ThaiNQ', player2: 't.mizutani', winner: 'ThaiNQ', score: '2-0' },  // D
-  { date: '03/12/2025', time: '12:15', player1: 'LieuND', player2: 'ThangPV', winner: '', score: '' },  // A
+  { date: '03/12/2025', time: '12:15', player1: 'LieuND', player2: 'ThangPV', winner: 'LieuND', score: '2-1' },  // A
   { date: '03/12/2025', time: '12:15', player1: 'DuyHG', player2: 'YChiTQ', winner: 'YChiTQ', score: '0-2' },    // B
   { date: '04/12/2025', time: '12:15', player1: 'HuyHVQ', player2: 'QuynhTTN', winner: 'QuynhTTN', score: '0-2' }, // C
   { date: '04/12/2025', time: '12:15', player1: 'NhanVP', player2: 't.mizutani', winner: 'NhanVP', score: '2-1' }, // D
@@ -49,11 +49,11 @@ const roundRobinMatches = [
   { date: '09/12/2025', time: '12:15', player1: 'ThuyNT', player2: 'ThangPV', winner: '', score: '' },   // A
   { date: '09/12/2025', time: '12:15', player1: 'HoanPV', player2: 'YChiTQ', winner: 'YChiTQ', score: '0-2' },    // B
   { date: '10/12/2025', time: '12:15', player1: 'HungLV', player2: 'HuyHVQ', winner: 'HungLV', score: '2-0' },    // C
-  { date: '10/12/2025', time: '12:15', player1: 'DongLT', player2: 't.mizutani', winner: '', score: '' },  // D
+  { date: '10/12/2025', time: '12:15', player1: 'DongLT', player2: 't.mizutani', winner: 'DongLT', score: '2-0' },  // D
   { date: '11/12/2025', time: '12:15', player1: 'LieuND', player2: 'NhanTT', winner: 'NhanTT', score: '1-2' },    // A
   { date: '11/12/2025', time: '12:15', player1: 'DuyHG', player2: 'ThanhND', winner: 'ThanhND', score: '0-2' },    // B
   { date: '12/12/2025', time: '12:15', player1: 'QuynhTTN', player2: 'SinhNT', winner: 'SinhNT', score: '0-2' },  // C
-  { date: '12/12/2025', time: '12:15', player1: 'NhanVP', player2: 'YenNTN', winner: '', score: '' },    // D
+  { date: '12/12/2025', time: '12:15', player1: 'NhanVP', player2: 'YenNTN', winner: 'NhanVP', score: '2-1' },    // D
 ];
 
 const playoffMatches = [
