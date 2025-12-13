@@ -717,11 +717,11 @@ function renderRankings(groupFilter = "all") {
     const tbody = document.querySelector(`#rankings-table-${group} tbody`);
     rankings[group].forEach((player, index) => {
       let rowClass = "";
-      // if (player.rank <= 2) {
-      //   rowClass = "top2-real";
-      // } else {
-      //   rowClass = "outside-top2";
-      // }
+      if (player.rank <= 2) {
+        rowClass = "top2-real";
+      } else {
+        rowClass = "outside-top2";
+      }
 
       const row = `
           <tr class="${rowClass}">
