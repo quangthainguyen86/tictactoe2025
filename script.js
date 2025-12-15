@@ -63,7 +63,7 @@ const playoffMatches = [
     { stage: 'Tứ kết', date: '10/12/2025', time: '12:20', player1: 'ThanhND', player2: 'SinhNT', winner: 'ThanhND', score: '2-1' },
     { stage: 'Bán kết', date: '11/12/2025', time: '12:10', player1: 'NhanTT', player2: 'LieuND', winner: 'LieuND', score: '1-2' },
     { stage: 'Bán kết', date: '11/12/2025', time: '12:20', player1: 'ThanhND', player2: 'NhanVP', winner: 'ThanhND', score: '2-0' },
-    { stage: 'Tranh 3, 4', date: '15/12/2025', time: '12:15', player1: 'NhanTT', player2: 'NhanVP', winner: '', score: '' },
+    { stage: 'Tranh 3, 4', date: '15/12/2025', time: '12:15', player1: 'NhanTT', player2: 'NhanVP', winner: 'NhanTT', score: '2-0' },
     { stage: 'Chung Kết', date: '16/12/2025', time: '12:15', player1: 'LieuND', player2: 'ThanhND', winner: '', score: '' }
 ];
 
